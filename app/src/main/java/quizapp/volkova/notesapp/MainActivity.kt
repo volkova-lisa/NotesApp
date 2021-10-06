@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import quizapp.volkova.notesapp.databinding.ActivityMainBinding
+import quizapp.volkova.notesapp.utils.APP_ACTIVITY
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,6 +19,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
+        //чтобы получать контекст в любом месте приложения
+        APP_ACTIVITY = this
+
+        mToolbar= mBinding.toolbar
+        mNavController = Navigation.findNavController(this, R.id.nav_host_fragment)
+        setSupportActionBar(mToolbar)
+
+        title = getString(R.string.title)
     }
 
     override fun onDestroy() {
