@@ -8,6 +8,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
+        viewBinding.enabled = true
         applicationId "quizapp.volkova.notesapp"
         minSdkVersion 19
         targetSdkVersion 30

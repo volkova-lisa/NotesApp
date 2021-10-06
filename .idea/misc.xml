@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/stepa/Desktop/SigmaSoftware/notes/NotesApp/app/src/main/res/drawable/ic_exit.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/stepa/Desktop/SigmaSoftware/notes/NotesApp/app/src/main/res/layout/fragment_create_note.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/stepa/Desktop/SigmaSoftware/notes/NotesApp/app/src/main/res/layout/fragment_inside_note.xml" value="0.1431159420289855" />
         <entry key="..\:/Users/stepa/Desktop/SigmaSoftware/notes/NotesApp/app/src/main/res/layout/fragment_start.xml" value="0.21979166666666666" />
         <entry key="..\:/Users/stepa/Desktop/SigmaSoftware/notes/NotesApp/app/src/main/res/layout/note_item.xml" value="0.21979166666666666" />
+        <entry key="..\:/Users/stepa/Desktop/SigmaSoftware/notes/NotesApp/app/src/main/res/menu/main_action_menu.xml" value="0.1625" />
+        <entry key="..\:/Users/stepa/Desktop/SigmaSoftware/notes/NotesApp/app/src/main/res/menu/note_action_menu.xml" value="0.1625" />
       </map>
     </option>
   </component>
