@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import kotlinx.android.synthetic.main.fragment_start.*
 import quizapp.volkova.notesapp.R
 import quizapp.volkova.notesapp.databinding.FragmentStartBinding
+import quizapp.volkova.notesapp.utils.TYPE_DATABASE
+import quizapp.volkova.notesapp.utils.TYPE_ROOM
 
 class StartFragment : Fragment() {
 
@@ -31,7 +34,9 @@ class StartFragment : Fragment() {
 
     private fun initialisation() {
         mViewModel = ViewModelProvider(this).get(StartFragmentViewModel::class.java)
-
+        room_btn.setOnClickListener {
+            mViewModel.initDataBase(TYPE_ROOM)
+        }
     }
 
 }
