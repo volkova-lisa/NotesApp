@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
     id 'kotlin-android-extensions'
 }
 
@@ -9,6 +10,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
+
         viewBinding.enabled = true
         applicationId "quizapp.volkova.notesapp"
         minSdkVersion 19
@@ -36,7 +38,9 @@ android {
 
 dependencies {
     implementation("androidx.room:room-runtime:2.3.0")
-    annotationProcessor("androidx.room:room-compiler:2.3.0")
+    //for kotlin use kapt!!!
+    //annotationProcessor("androidx.room:room-compiler:2.3.0")
+    kapt "androidx.room:room-compiler:2.3.0"
 
     // optional - Kotlin Extensions and Coroutines support for Room
     implementation("androidx.room:room-ktx:2.3.0")
