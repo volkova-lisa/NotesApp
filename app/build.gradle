@@ -3,6 +3,8 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'kotlin-android-extensions'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -41,7 +43,12 @@ android {
 }
 
 dependencies {
+    implementation "com.google.firebase:firebase-auth:16.0.5"
+
     implementation("androidx.room:room-runtime:2.3.0")
+    implementation 'com.google.firebase:firebase-crashlytics-ktx:18.2.3'
+    implementation 'com.google.firebase:firebase-analytics-ktx:19.0.2'
+    implementation 'com.google.firebase:firebase-database-ktx:20.0.2'
     //for kotlin use kapt!!!
     kapt "androidx.room:room-compiler:2.3.0"
 
