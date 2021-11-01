@@ -1,4 +1,4 @@
-package quizapp.volkova.notesapp.screen.start
+package quizapp.volkova.notesapp.screen.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,25 +6,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import kotlinx.android.synthetic.main.fragment_start.*
 import quizapp.volkova.notesapp.R
-import quizapp.volkova.notesapp.databinding.FragmentStartBinding
+import quizapp.volkova.notesapp.databinding.FragmentMainBinding
 import quizapp.volkova.notesapp.utils.APP_ACTIVITY
-import quizapp.volkova.notesapp.utils.TYPE_DATABASE
-import quizapp.volkova.notesapp.utils.TYPE_ROOM
 
-class StartFragment : Fragment() {
+class MainFragment : Fragment() {
 
-    private var _binding: FragmentStartBinding? = null
+    private var _binding: FragmentMainBinding? = null
     private val mBinding get() = _binding!!
-    private lateinit var mViewModel: StartFragmentViewModel
+    private lateinit var mViewModel: MainFragmentViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentStartBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentMainBinding.inflate(layoutInflater, container, false)
         return mBinding.root
     }
 
@@ -34,11 +31,9 @@ class StartFragment : Fragment() {
     }
 
     private fun initialisation() {
-        mViewModel = ViewModelProvider(this).get(StartFragmentViewModel::class.java)
-        room_btn.setOnClickListener {
-            mViewModel.initDataBase(TYPE_ROOM){
-                APP_ACTIVITY.mNavController.navigate(R.id.action_startFragment_to_mainFragment)
-            }
+        mViewModel = ViewModelProvider(this).get(MainFragmentViewModel::class.java)
+        mBinding.addNoteBtn.setOnClickListener{
+            APP_ACTIVITY.mNavController.navigate(R.id.action_mainFragment_to_createNoteFragment)
         }
     }
 
@@ -46,5 +41,4 @@ class StartFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

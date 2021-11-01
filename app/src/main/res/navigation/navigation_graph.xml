@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="quizapp.volkova.notesapp.screen.MainFragment"
+        android:name="quizapp.volkova.notesapp.screen.main.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
