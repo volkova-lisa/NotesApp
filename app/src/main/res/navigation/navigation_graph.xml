@@ -39,7 +39,7 @@
     </fragment>
     <fragment
         android:id="@+id/insideNoteFragment"
-        android:name="quizapp.volkova.notesapp.screen.InsideNoteFragment"
+        android:name="quizapp.volkova.notesapp.note.InsideNoteFragment"
         android:label="fragment_inside_note"
         tools:layout="@layout/fragment_inside_note" >
         <action

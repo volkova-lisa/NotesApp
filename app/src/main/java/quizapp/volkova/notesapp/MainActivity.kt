@@ -11,7 +11,7 @@ import quizapp.volkova.notesapp.utils.APP_ACTIVITY
 class MainActivity : AppCompatActivity() {
 
     lateinit var mToolbar: Toolbar
-    lateinit var mNavController: NavController
+    lateinit var navController: NavController
     private var _binding: ActivityMainBinding? = null
     val mBinding get() = _binding!!
 
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         APP_ACTIVITY = this
 
         mToolbar= mBinding.toolbar
-        mNavController = Navigation.findNavController(this, R.id.nav_host_fragment)
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment)
         setSupportActionBar(mToolbar)
 
         title = getString(R.string.title)

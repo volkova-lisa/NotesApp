@@ -41,7 +41,7 @@ class CreateNoteFragment : Fragment() {
                 showToast(getString(R.string.enter_title_toast))
             } else {
                 mViewModel.insertNote(NoteBody(name = name, text = text)){
-                    APP_ACTIVITY.mNavController.navigate(R.id.action_createNoteFragment_to_mainFragment)
+                    APP_ACTIVITY.navController.navigate(R.id.action_createNoteFragment_to_mainFragment)
                 }
             }
         }
