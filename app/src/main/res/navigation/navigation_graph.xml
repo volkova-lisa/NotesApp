@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/createNoteFragment"
-        android:name="quizapp.volkova.notesapp.screen.CreateNoteFragment"
+        android:name="quizapp.volkova.notesapp.screen.create_new_note.CreateNoteFragment"
         android:label="fragment_create_note"
         tools:layout="@layout/fragment_create_note" >
         <action

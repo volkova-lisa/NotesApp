@@ -6,12 +6,12 @@ import quizapp.volkova.notesapp.models.NoteBody
 
 @Dao
 interface AppRoomDao {
-    @Query("SELECT *from notes_tables")
+    @Query("SELECT * from notes_tables")
     fun getAllNotes():LiveData<List<NoteBody>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(noteBody: NoteBody)
+    suspend fun insert(note: NoteBody)
 
     @Delete
-    suspend fun delete(noteBody: NoteBody)
+    suspend fun delete(note: NoteBody)
 }

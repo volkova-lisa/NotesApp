@@ -21,7 +21,7 @@ abstract class AppRoomDatabase:RoomDatabase() {
                 database = Room.databaseBuilder(
                     context,
                     AppRoomDatabase::class.java,
-                    "notesDatabase"
+                    "database"
                 ).build()
                 database as AppRoomDatabase
             } else database as AppRoomDatabase

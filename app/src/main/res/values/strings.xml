@@ -6,4 +6,5 @@
     <string name="start_label">Welcome</string>
     <string name="room_btn">Start</string>
     <string name="title">Notes</string>
+    <string name="enter_title_toast">Enter note title</string>
 </resources>
