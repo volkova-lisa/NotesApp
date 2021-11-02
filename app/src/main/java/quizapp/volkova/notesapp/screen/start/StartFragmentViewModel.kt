@@ -2,6 +2,7 @@ package quizapp.volkova.notesapp.screen.start
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import quizapp.volkova.notesapp.database.firebase.FirebaseRepository
 import quizapp.volkova.notesapp.database.room.AppRoomDatabase
 import quizapp.volkova.notesapp.database.room.AppRoomRepository
 import quizapp.volkova.notesapp.utils.REPOSITORY
@@ -21,7 +22,8 @@ class StartFragmentViewModel(app: Application) : AndroidViewModel(app) {
              }
 
              TYPE_FIREBASE -> {
-                 showToast(TYPE_FIREBASE)
+                 REPOSITORY = FirebaseRepository()
+                 REPOSITORY.connectToDatabase({onSuccess()},{ showToast(it)})
              }
          }
     }

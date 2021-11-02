@@ -12,4 +12,7 @@ interface DataBaseRepository {
     val allNotes: LiveData<List<NoteBody>>
     suspend fun insert(noteBody: NoteBody, onSuccess:()->Unit)
     suspend fun delete(noteBody: NoteBody, onSuccess:()->Unit)
+
+    fun connectToDatabase(onSuccess: () -> Unit, onFail: (String) -> Unit) {}
+    fun signOut(){}
 }

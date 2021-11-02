@@ -50,7 +50,8 @@ class StartFragment : Fragment() {
                     EMAIL = inputEmail
                     PASS = inputPass
                     mViewModel.initDataBase(TYPE_FIREBASE){
-                        APP_ACTIVITY.navController.navigate(R.id.action_startFragment_to_mainFragment)
+                        showToast("SUCCESS")
+                        //APP_ACTIVITY.navController.navigate(R.id.action_startFragment_to_mainFragment)
                     }
                 } else {
                     showToast("Enter email and password")
