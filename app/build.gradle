@@ -43,10 +43,10 @@ android {
 }
 
 dependencies {
-    implementation "com.google.firebase:firebase-auth:16.0.5"
+    implementation "com.google.firebase:firebase-auth:17.0.0"
 
     implementation("androidx.room:room-runtime:2.3.0")
-    implementation 'com.google.firebase:firebase-crashlytics-ktx:18.2.3'
+    //implementation 'com.google.firebase:firebase-crashlytics-ktx:18.2.3'
     implementation 'com.google.firebase:firebase-analytics-ktx:19.0.2'
     implementation 'com.google.firebase:firebase-database-ktx:20.0.2'
     //for kotlin use kapt!!!

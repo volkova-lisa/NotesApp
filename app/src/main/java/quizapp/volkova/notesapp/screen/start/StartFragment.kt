@@ -10,8 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_start.*
 import quizapp.volkova.notesapp.R
 import quizapp.volkova.notesapp.databinding.FragmentStartBinding
-import quizapp.volkova.notesapp.utils.APP_ACTIVITY
-import quizapp.volkova.notesapp.utils.TYPE_ROOM
+import quizapp.volkova.notesapp.utils.*
 
 class StartFragment : Fragment() {
 
@@ -34,9 +33,28 @@ class StartFragment : Fragment() {
 
     private fun initialisation() {
         mViewModel = ViewModelProvider(this).get(StartFragmentViewModel::class.java)
-        room_btn.setOnClickListener {
+        mBinding.roomBtn.setOnClickListener {
             mViewModel.initDataBase(TYPE_ROOM){
                 APP_ACTIVITY.navController.navigate(R.id.action_startFragment_to_mainFragment)
+            }
+        }
+        mBinding.fbBtn.setOnClickListener{
+            mBinding.inputPass.visibility = View.VISIBLE
+            mBinding.inputEmail.visibility = View.VISIBLE
+            mBinding.loginBtn.visibility = View.VISIBLE
+
+            mBinding.loginBtn.setOnClickListener{
+                val inputEmail = mBinding.inputEmail.text.toString()
+                val inputPass = mBinding.inputPass.text.toString()
+                if (inputEmail.isNotEmpty() && inputPass.isNotEmpty()){
+                    EMAIL = inputEmail
+                    PASS = inputPass
+                    mViewModel.initDataBase(TYPE_FIREBASE){
+                        APP_ACTIVITY.navController.navigate(R.id.action_startFragment_to_mainFragment)
+                    }
+                } else {
+                    showToast("Enter email and password")
+                }
             }
         }
     }
