@@ -10,6 +10,7 @@ import quizapp.volkova.notesapp.R
 import quizapp.volkova.notesapp.databinding.FragmentMainBinding
 import quizapp.volkova.notesapp.models.NoteBody
 import quizapp.volkova.notesapp.utils.APP_ACTIVITY
+import quizapp.volkova.notesapp.utils.Preference
 
 class MainFragment : Fragment() {
 
@@ -65,6 +66,7 @@ class MainFragment : Fragment() {
         when(item.itemId) {
             R.id.exit_btn -> {
                 mViewModel.signOut()
+                Preference.setInitUser(false)
                 APP_ACTIVITY.navController.navigate(R.id.action_mainFragment_to_startFragment)
 
             }

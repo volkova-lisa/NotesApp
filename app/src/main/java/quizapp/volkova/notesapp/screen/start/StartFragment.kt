@@ -28,13 +28,19 @@ class StartFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        initialisation()
+        mViewModel = ViewModelProvider(this).get(StartFragmentViewModel::class.java)
+        if (Preference.getInitUser()) {
+            mViewModel.initDataBase(Preference.getDBType()){
+                APP_ACTIVITY.navController.navigate(R.id.action_startFragment_to_mainFragment)
+            }
+        } else initialisation()
     }
 
     private fun initialisation() {
-        mViewModel = ViewModelProvider(this).get(StartFragmentViewModel::class.java)
         mBinding.roomBtn.setOnClickListener {
             mViewModel.initDataBase(TYPE_ROOM){
+                Preference.setInitUser(true)
+                Preference.setDBType(TYPE_ROOM)
                 APP_ACTIVITY.navController.navigate(R.id.action_startFragment_to_mainFragment)
             }
         }
@@ -51,6 +57,8 @@ class StartFragment : Fragment() {
                     PASS = inputPass
                     mViewModel.initDataBase(TYPE_FIREBASE){
                         //showToast("SUCCESS")
+                        Preference.setInitUser(true)
+                        Preference.setDBType(TYPE_FIREBASE)
                         APP_ACTIVITY.navController.navigate(R.id.action_startFragment_to_mainFragment)
                     }
                 } else {

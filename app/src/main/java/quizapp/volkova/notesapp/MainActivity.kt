@@ -7,6 +7,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import quizapp.volkova.notesapp.databinding.ActivityMainBinding
 import quizapp.volkova.notesapp.utils.APP_ACTIVITY
+import quizapp.volkova.notesapp.utils.Preference
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,6 +28,8 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(mToolbar)
 
         title = getString(R.string.title)
+
+        Preference.getPreference(this)
     }
 
     override fun onDestroy() {

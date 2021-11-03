@@ -3,10 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/stepa/Desktop/SigmaSoftware/notes/NotesApp/app/src/main/res/drawable/ic_add_note.xml" value="0.2203125" />
         <entry key="..\:/Users/stepa/Desktop/SigmaSoftware/notes/NotesApp/app/src/main/res/drawable/ic_exit.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/stepa/Desktop/SigmaSoftware/notes/NotesApp/app/src/main/res/drawable/pink_back.xml" value="0.2203125" />
+        <entry key="..\:/Users/stepa/Desktop/SigmaSoftware/notes/NotesApp/app/src/main/res/drawable/pink_button.xml" value="0.2203125" />
+        <entry key="..\:/Users/stepa/Desktop/SigmaSoftware/notes/NotesApp/app/src/main/res/drawable/pink_line.xml" value="0.2203125" />
+        <entry key="..\:/Users/stepa/Desktop/SigmaSoftware/notes/NotesApp/app/src/main/res/drawable/white_back.xml" value="0.2203125" />
+        <entry key="..\:/Users/stepa/Desktop/SigmaSoftware/notes/NotesApp/app/src/main/res/drawable/white_line.xml" value="0.2203125" />
         <entry key="..\:/Users/stepa/Desktop/SigmaSoftware/notes/NotesApp/app/src/main/res/layout/activity_main.xml" value="0.17604166666666668" />
-        <entry key="..\:/Users/stepa/Desktop/SigmaSoftware/notes/NotesApp/app/src/main/res/layout/fragment_create_note.xml" value="0.1956521739130435" />
-        <entry key="..\:/Users/stepa/Desktop/SigmaSoftware/notes/NotesApp/app/src/main/res/layout/fragment_inside_note.xml" value="0.1431159420289855" />
+        <entry key="..\:/Users/stepa/Desktop/SigmaSoftware/notes/NotesApp/app/src/main/res/layout/fragment_create_note.xml" value="0.2436923148431724" />
+        <entry key="..\:/Users/stepa/Desktop/SigmaSoftware/notes/NotesApp/app/src/main/res/layout/fragment_inside_note.xml" value="0.2436923148431724" />
         <entry key="..\:/Users/stepa/Desktop/SigmaSoftware/notes/NotesApp/app/src/main/res/layout/fragment_main.xml" value="0.12708333333333333" />
         <entry key="..\:/Users/stepa/Desktop/SigmaSoftware/notes/NotesApp/app/src/main/res/layout/fragment_start.xml" value="0.21979166666666666" />
         <entry key="..\:/Users/stepa/Desktop/SigmaSoftware/notes/NotesApp/app/src/main/res/layout/note_item.xml" value="0.21979166666666666" />
