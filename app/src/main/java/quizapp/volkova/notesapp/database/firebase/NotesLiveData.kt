@@ -7,34 +7,27 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import quizapp.volkova.notesapp.models.NoteBody
+import quizapp.volkova.notesapp.utils.REF_DATABASE
 
 class NotesLiveData: LiveData<List<NoteBody>>() {
-    private val mAuth = FirebaseAuth.getInstance()
-    private val mDatabaseReference = FirebaseDatabase.getInstance().reference
-        .child(mAuth.currentUser?.uid.toString())
     private val listener = object : ValueEventListener{
-        override fun onDataChange(snapshot: DataSnapshot) {
-            value = snapshot.children.map{
+        override fun onCancelled(p0: DatabaseError) {
+        }
+
+        override fun onDataChange(p0: DataSnapshot) {
+            value = p0.children.map {
                 it.getValue(NoteBody::class.java)?: NoteBody()
             }
         }
-
-
-
-        override fun onCancelled(error: DatabaseError) {
-            TODO("Not yet implemented")
-        }
-
-    }
-
-    override fun onActive() {
-        mDatabaseReference.addValueEventListener(listener)
-        super.onActive()
     }
 
     override fun onInactive() {
-        mDatabaseReference.removeEventListener(listener)
+        REF_DATABASE.removeEventListener(listener)
         super.onInactive()
     }
 
+    override fun onActive() {
+        REF_DATABASE.addValueEventListener(listener)
+        super.onActive()
+    }
 }

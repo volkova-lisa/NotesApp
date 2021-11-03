@@ -14,15 +14,12 @@ class InsideNoteFragment : Fragment() {
     private var _binding: FragmentInsideNoteBinding? = null
     private val mBinding get() = _binding!!
     private lateinit var mViewModelInside: InsideNoteFragmentViewModel
-
     private lateinit var mCurrentNote: NoteBody
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         _binding = FragmentInsideNoteBinding.inflate(layoutInflater, container, false)
         mCurrentNote = arguments?.getSerializable("note") as NoteBody
         return mBinding.root

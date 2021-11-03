@@ -9,41 +9,48 @@ import quizapp.volkova.notesapp.utils.*
 
 class FirebaseRepository: DataBaseRepository {
 
-    private val mAuth = FirebaseAuth.getInstance()
-    private val mDatabaseReference = FirebaseDatabase.getInstance().reference
-        .child(mAuth.currentUser?.uid.toString())
+
+    init {
+        AUTH = FirebaseAuth.getInstance()
+    }
 
     override val allNotes: LiveData<List<NoteBody>> = NotesLiveData()
 
-    override suspend fun insert(noteBody: NoteBody, onSuccess: () -> Unit) {
-        val idNote = mDatabaseReference.push().key.toString()
-        val noteMap = hashMapOf<String, Any>()
-        noteMap[ID_FIREBASE] = idNote
-        noteMap[NAME] = noteBody.name
-        noteMap[TEXT] = noteBody.text
+    override suspend fun insert(note: NoteBody, onSuccess: () -> Unit) {
+        val idNote = REF_DATABASE.push().key.toString()
+        val mapNote = hashMapOf<String, Any>()
+        mapNote[ID_FIREBASE] = idNote
+        mapNote[NAME] = note.name
+        mapNote[TEXT] = note.text
 
-        mDatabaseReference.child(idNote)
-            .updateChildren(noteMap)
+        REF_DATABASE.child(idNote)
+            .updateChildren(mapNote)
             .addOnSuccessListener { onSuccess() }
-            .addOnFailureListener { showToast("Error happened") }
+            .addOnFailureListener { showToast(it.message.toString()) }
     }
 
-    override suspend fun delete(noteBody: NoteBody, onSuccess: () -> Unit) {
-        TODO("Not yet implemented")
+    override suspend fun delete(note: NoteBody, onSuccess: () -> Unit) {
+        REF_DATABASE.child(note.idFirebase).removeValue()
+            .addOnSuccessListener { onSuccess() }
+            .addOnFailureListener { showToast(it.message.toString()) }
     }
 
     override fun connectToDatabase(onSuccess: () -> Unit, onFail: (String) -> Unit) {
-        mAuth.signInWithEmailAndPassword(EMAIL, PASS)
+        AUTH.signInWithEmailAndPassword(EMAIL, PASS)
             .addOnSuccessListener { onSuccess() }
-            .addOnFailureListener {
-                mAuth.createUserWithEmailAndPassword(EMAIL, PASS)
+            .addOnFailureListener() {
+                AUTH.createUserWithEmailAndPassword(EMAIL, PASS)
                     .addOnSuccessListener { onSuccess() }
                     .addOnFailureListener { onFail(it.message.toString()) }
             }
 
+        CURRENT_ID = AUTH.currentUser?.uid.toString()
+        REF_DATABASE = FirebaseDatabase.getInstance().reference
+            .child(CURRENT_ID)
+
     }
 
     override fun signOut() {
-        mAuth.signOut()
+        AUTH.signOut()
     }
 }
