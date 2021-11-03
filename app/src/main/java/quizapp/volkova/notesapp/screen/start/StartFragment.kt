@@ -6,10 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_start.*
 import quizapp.volkova.notesapp.R
 import quizapp.volkova.notesapp.databinding.FragmentStartBinding
+import quizapp.volkova.notesapp.screen.main.MainFragment
 import quizapp.volkova.notesapp.utils.*
 
 class StartFragment : Fragment() {
@@ -50,6 +53,7 @@ class StartFragment : Fragment() {
             mBinding.loginBtn.visibility = View.VISIBLE
 
             mBinding.loginBtn.setOnClickListener{
+                mBinding.loginBtn.isClickable = false
                 val inputEmail = mBinding.inputEmail.text.toString()
                 val inputPass = mBinding.inputPass.text.toString()
                 if (inputEmail.isNotEmpty() && inputPass.isNotEmpty()){
@@ -60,6 +64,7 @@ class StartFragment : Fragment() {
                         Preference.setInitUser(true)
                         Preference.setDBType(TYPE_FIREBASE)
                         APP_ACTIVITY.navController.navigate(R.id.action_startFragment_to_mainFragment)
+
                     }
                 } else {
                     showToast("Enter email and password")
