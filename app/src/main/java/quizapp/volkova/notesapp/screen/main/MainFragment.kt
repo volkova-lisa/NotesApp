@@ -1,10 +1,8 @@
 package quizapp.volkova.notesapp.screen.main
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
@@ -38,6 +36,7 @@ class MainFragment : Fragment() {
     }
 
     private fun initialisation() {
+        setHasOptionsMenu(true)
         mainAdapter = MainAdapter()
         mRecyclerView = mBinding.notesList
         mRecyclerView.adapter = mainAdapter
@@ -57,6 +56,20 @@ class MainFragment : Fragment() {
         _binding = null
         mViewModel.allNotes.removeObserver(mObserverList)
         mRecyclerView.adapter = null
+    }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.main_action_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.exit_btn -> {
+                mViewModel.signOut()
+                APP_ACTIVITY.navController.navigate(R.id.action_mainFragment_to_startFragment)
+
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     companion object{

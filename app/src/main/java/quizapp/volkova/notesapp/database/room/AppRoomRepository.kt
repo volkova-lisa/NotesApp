@@ -20,4 +20,8 @@ class AppRoomRepository(private val appRoomDao: AppRoomDao): DataBaseRepository 
         appRoomDao.delete(noteBody)
         onSuccess()
     }
+
+    override fun signOut() {
+        super.signOut()
+    }
 }
