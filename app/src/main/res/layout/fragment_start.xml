@@ -8,6 +8,8 @@
     android:paddingBottom="50dp"
     tools:context=".screen.start.StartFragment">
 
+
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -26,7 +28,7 @@
         android:textSize="20sp"
         android:textColor="#85BB86FC"
         android:textStyle="italic"
-        android:text="Choose database type to continue"
+        android:text="Choose database to continue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView"/>

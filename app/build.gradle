@@ -47,6 +47,7 @@ dependencies {
 
     implementation("androidx.room:room-runtime:2.3.0")
     //implementation 'com.google.firebase:firebase-crashlytics-ktx:18.2.3'
+    implementation 'com.airbnb.android:lottie:4.2.0'
     implementation 'com.google.firebase:firebase-analytics-ktx:19.0.2'
     implementation 'com.google.firebase:firebase-database-ktx:20.0.2'
     implementation 'com.google.firebase:firebase-crashlytics-ktx:18.2.4'
