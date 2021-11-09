@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import quizapp.volkova.notesapp.MyFirebaseMessagingService
 import quizapp.volkova.notesapp.R
 import quizapp.volkova.notesapp.databinding.FragmentCreateNoteBinding
 import quizapp.volkova.notesapp.models.NoteBody
@@ -17,6 +18,7 @@ class CreateNoteFragment : Fragment() {
     private var _binding: FragmentCreateNoteBinding? = null
     private val mBinding get() = _binding!!
     private lateinit var mViewModel: CreateNoteFragmentViewModel
+    private lateinit var mMyFirebaseMessagingService: MyFirebaseMessagingService
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +36,9 @@ class CreateNoteFragment : Fragment() {
 
     private fun initialisation() {
         mViewModel = ViewModelProvider(this).get(CreateNoteFragmentViewModel::class.java)
+        mMyFirebaseMessagingService = MyFirebaseMessagingService()
         mBinding.addNoteBtn.setOnClickListener {
+            mMyFirebaseMessagingService.showNotification(context, "AAAAAa", "BBBBBBBB")
             val name = mBinding.noteTitleInput.text.toString()
             val text = mBinding.noteTextInput.text.toString()
             if(name.isEmpty()){

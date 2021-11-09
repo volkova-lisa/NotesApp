@@ -46,7 +46,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService(){
     }
 
     fun showNotification(
-        context: Context,
+        context: Context?,
         title: String?,
         message: String?
     ) {
@@ -60,7 +60,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService(){
         val notification: Notification
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             //Log.e("Notification", "Created in up to orio OS device");
-            notification = NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
+            notification = NotificationCompat.Builder(context!!, NOTIFICATION_CHANNEL_ID)
                 .setOngoing(true)
                 .setSmallIcon(getNotificationIcon())
                 .setContentText(message)
@@ -82,7 +82,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService(){
             notificationManager.createNotificationChannel(notificationChannel)
             notificationManager.notify(NOTIFICATION_ID, notification)
         } else {
-            notification = NotificationCompat.Builder(context)
+            notification = NotificationCompat.Builder(context!!)
                 .setSmallIcon(getNotificationIcon())
                 .setAutoCancel(true)
                 .setContentText(message)
