@@ -99,7 +99,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService(){
     private fun getNotificationIcon(): Int {
         val useWhiteIcon =
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
-        return if (useWhiteIcon) R.mipmap.ic_launcher else R.mipmap.ic_launcher
+        return if (useWhiteIcon) R.drawable.ic_note else R.mipmap.ic_launcher
     }
 
 }
