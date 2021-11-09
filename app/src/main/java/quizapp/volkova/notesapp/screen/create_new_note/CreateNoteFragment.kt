@@ -38,7 +38,6 @@ class CreateNoteFragment : Fragment() {
         mViewModel = ViewModelProvider(this).get(CreateNoteFragmentViewModel::class.java)
         mMyFirebaseMessagingService = MyFirebaseMessagingService()
         mBinding.addNoteBtn.setOnClickListener {
-            mMyFirebaseMessagingService.showNotification(context, "AAAAAa", "BBBBBBBB")
             val name = mBinding.noteTitleInput.text.toString()
             val text = mBinding.noteTextInput.text.toString()
             if(name.isEmpty()){
@@ -48,6 +47,7 @@ class CreateNoteFragment : Fragment() {
                     APP_ACTIVITY.navController.navigate(R.id.action_createNoteFragment_to_mainFragment)
                 }
             }
+            mMyFirebaseMessagingService.showNotification(context, "New Note Created", name)
         }
     }
 
